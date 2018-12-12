@@ -2,7 +2,9 @@
 
 #### Background 
 - Security Assertion Markup Language - federated protocol 
-- XML-based
+- SAML describes 
+    1. Payload format (XML) 
+    2. Transport format (redirection details)  
 - Managing access control for a group of users and a group of different applications 
 - Past situtation: 
     - Separate user databases for each app 
@@ -28,6 +30,7 @@ containing user information (e.g. company, username, department, etc.)
 - Note: 
     1. SP never directly interacts with IP. Browser acts as agend to carry out all redirections 
     2. SP needs to know which IdP to redirect to before it can know who user is 
+        - Realm discovery problem (needs redirection data determined by subdomain and/or transport format)
     3. SP can't know who the user is until the SAML assertion comes back from IP 
     4. Flow doesn't have to start from SP. IdP can also initiate authentication flow 
     5. SAML authentication flow is asynchronous. SP doesn't maintain any state of authentication requests generated. IdP responses must contain all necessary info 
@@ -36,6 +39,8 @@ containing user information (e.g. company, username, department, etc.)
 #### Misc terminology 
 - LDAP - lightweight data access protocol 
 - ISV - independent software vendor 
+- Passive profile: flow between browser, SP, IdP 
+- Active profile 
 
 ### Implementation Roadmap 
 1. Understanding the role of a Service Provider
@@ -47,11 +52,9 @@ containing user information (e.g. company, username, department, etc.)
 
 #### Understanding the role of a Service Provider
 
-
 #### Single IdP v. Multiple IdPs
 
 #### Exposing SAML configuration in SP 
-
 
 #### Enabling SAML for everyone v. a subset of users 
 
@@ -59,3 +62,4 @@ containing user information (e.g. company, username, department, etc.)
 
 #### Sources 
 - [Okta SAML documentation](https://www.okta.com/integrate/documentation/saml/)
+- [Introduction to SAML - Chalktalk on what it is, how it is used - Paul Moore](https://www.youtube.com/watch?v=S9BpeOmuEz4)
